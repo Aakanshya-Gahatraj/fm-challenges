@@ -21,8 +21,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: 
-
+- Solution URL: https://aakanshya-gahatraj.github.io/frontend-mentor/single-price-grid-component/
 
 
 
