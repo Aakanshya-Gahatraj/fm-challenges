@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'heading-mob': "url('images/image-header-mob.jpg')",
-        'heading-desk': "url('images/image-header-desk.jpg')",
+        // 'heading-mob': "url('images/image-header-mob.jpg')",
+        // 'heading-desk': "url('images/image-header-desk.jpg')",
         'graphic-mob': "url('images/image-cherry-mob.jpg')",
         'graphic-desk': "url('images/image-cherry-desk.jpg')",
         'photography-mob': "url('images/image-orange-mob.jpg')",
@@ -17,7 +17,7 @@ module.exports = {
         'custom-sm': '530px',
         'custom-padding': '661px',
         'custom-md': '992px',
-        'custom-lg': '1400px',
+        'custom-lg': '1440px',
       },
       fontFamily: {
         'custom-heading': ['"Fraunces"', 'serif'],
