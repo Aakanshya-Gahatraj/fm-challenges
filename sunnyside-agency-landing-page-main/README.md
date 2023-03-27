@@ -17,7 +17,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Screenshot](images/screenshot.jpg)
+![Screenshot](public/images/Screenshot.jpg)
 
 ### Links
 
