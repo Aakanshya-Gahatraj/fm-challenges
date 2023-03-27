@@ -5,6 +5,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'heading-mob': "url('images/image-header-mob.jpg')",
+        'heading-desk': "url('images/image-header-desk.jpg')",
+        'graphic-mob': "url('images/image-cherry-mob.jpg')",
+        'graphic-desk': "url('images/image-cherry-desk.jpg')",
+        'photography-mob': "url('images/image-orange-mob.jpg')",
+        'photography-desk': "url('images/image-orange-desk.jpg')",
+      },
       screens: {
         'custom-sm': '530px',
         'custom-padding': '661px',
