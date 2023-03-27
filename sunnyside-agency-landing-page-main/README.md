@@ -5,8 +5,9 @@ This is my solution to [the challenge](https://www.frontendmentor.io/challenges/
 ## Table of contents
 
 - [The challenge](#the-challenge)
-- [Screenshot](#screenshot)
+- [My Process](#my-process)
 - [Problem Faced](#problem-faced)
+- [Screenshot](#screenshot)
 - [Links](#links)
 
 ### The challenge
@@ -15,6 +16,17 @@ Users should be able to:
 
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
+
+### My Process
+
+I used these tools to complete the challenge.
+
+- HTML
+- CSS & Tailwind CSS
+- Flexbox
+- CSS Grid
+- Vanilla JS
+- Mobile-First Approach
 
 ### Problem Faced
 
