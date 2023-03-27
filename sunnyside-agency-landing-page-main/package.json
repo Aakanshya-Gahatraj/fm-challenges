@@ -1,0 +1,43 @@
+{
+ 
+  "name": "sunnyside-agency-landing-page-main",
+ 
+  "description": "![Design preview for the Sunnyside agency landing page coding challenge](./design/desktop-preview.jpg)",
+ 
+  "version": "1.0.0",
+ 
+  "main": "postcss.config.js",
+ 
+  "keywords": [],
+ 
+  "author": "",
+ 
+  "license": "ISC",
+ 
+  "scripts": {
+ 
+   
+  "dev": "vite"
+ 
+  },
+ 
+  "dependencies": {
+ 
+   
+  "vite": "^4.2.1"
+ 
+  },
+ 
+  "devDependencies": {
+ 
+   
+  "autoprefixer": "^10.4.14",
+ 
+   
+  "postcss": "^8.4.21",
+ 
+   
+  "tailwindcss": "^3.2.7"
+ 
+  }
+}

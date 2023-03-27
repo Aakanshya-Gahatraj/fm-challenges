@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+h1{
+    color: hsl(168, 45%, 32%);
+    color:hsl(167, 40%, 24%);
+    color:hsl(168, 44%, 32%);
+    color:hsl(168, 34%, 41%);
+
+    color: hsl(210, 4%, 67%);
+    color: hsl(232, 10%, 55%);
+    color: hsl(213, 9%, 39%);
+    color: hsl(212, 27%, 19%);
+
+    color: hsl(51, 89%, 75%);
+    color: hsl(7, 97%, 76%);
+}
