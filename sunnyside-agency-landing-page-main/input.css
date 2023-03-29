@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 
-h1{
+/* h1{
     color: hsl(168, 45%, 32%);
     color:hsl(167, 40%, 24%);
     color:hsl(168, 44%, 32%);
@@ -17,6 +17,8 @@ h1{
     color: hsl(51, 89%, 75%);
     color: hsl(7, 97%, 76%);
 }
+
+*/
 .parent {
     position: relative;
     /* set position relative to position children */
