@@ -15,4 +15,5 @@ This repository contains all the solutions to some challenges I undertook from F
 ## Ongoing Challenge:  
 
 - [Todo App - Intermediate](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW)
+- [Space Tourism Website - Intermediate](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3)
 - [Solution under construction...👷🏻‍♀️](https://github.com/Aakanshya-Gahatraj/fm-challenges/tree/master/todo-app-main)
