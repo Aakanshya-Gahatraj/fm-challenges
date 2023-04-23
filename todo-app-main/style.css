@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); } */
-
 h5 {
     color: hsl(220, 98%, 61%);
     /*for active states*/

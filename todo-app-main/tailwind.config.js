@@ -1,10 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: ['class','[data-theme="dark"]'],
   content: [
     "./index.html"
   ],
   theme: {
     extend: {
+      screens: {
+        'custom-sm': '500px',
+        'custom-md': '700px',
+        'custom-lg': '1100px',
+      },
       fontFamily:{
         'josefin': ['"Josefin Sans"', 'sans-serif'],
       },
