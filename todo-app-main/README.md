@@ -1,7 +1,7 @@
 ![Design preview for the Todo app coding challenge](./design/desktop-preview.jpg)
 
 <div align="center">
-<h1>Todo App</h1>
+<h1>Todo App</h1></div>
 
 ## About
 This is an intermediate-level challenge which helps put one's javascript skills to the test. The challenge is basically to create a simple todo app that allows users to add, delete, filter and reorder todos.
