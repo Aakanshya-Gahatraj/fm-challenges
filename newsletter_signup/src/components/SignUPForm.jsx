@@ -1,10 +1,37 @@
 import { useRef, useState } from "react";
 import Icon from "./Icon";
 
+const validateEmail = (email) => {
+  return /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/.test(email);
+};
+
 function SignUPForm() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
   const dialogRef = useRef(null);
+
+  const handleInputChange = (e) => {
+    const email = e.target.value;
+    setEmail(email);
+    if (!validateEmail(email)) {
+      setError("Invalid email address");
+      setIsDisabled(true);
+    } else {
+      setError("");
+      setIsDisabled(false);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!email) {
+      setError("Please add your email");
+    } else {
+      openPopup();
+      setIsDisabled(false);
+    }
+  };
 
   const openPopup = () => {
     dialogRef.current.showModal();
@@ -14,25 +41,9 @@ function SignUPForm() {
     dialogRef.current.close();
   };
 
-  const validateEmail = () => {
-    !/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(email) &&
-      setError("Valid email required");
-  };
-
   return (
     <div className="signUp">
-      <form
-        onSubmit={(e) => {
-          setError("");
-          e.preventDefault();
-          if (!email) {
-            setError("Please add your email");
-          } else {
-            validateEmail();
-            error.length == 0 && openPopup();
-          }
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         <div className="label mb-4 flex justify-between">
           <label
             htmlFor="email"
@@ -50,7 +61,7 @@ function SignUPForm() {
         <input
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleInputChange}
           className={` p-4 w-full border hover:cursor-pointer ${
             error
               ? "bg-red-100 text-primary border-primary"
@@ -58,7 +69,10 @@ function SignUPForm() {
           } rounded-md text-custom-grey`}
           placeholder={error ? error : "email@company.com"}
         />
-        <button className=" px-2 py-5 mt-5 w-full text-custom-white font-semibold text-center bg-custom-dark-slate-grey hover:bg-gradient-to-r from-gradient-1 to-gradient-2 rounded-md">
+        <button
+          disabled={isDisabled}
+          className=" px-2 py-5 mt-5 w-full text-custom-white font-semibold text-center bg-custom-dark-slate-grey hover:bg-gradient-to-r from-gradient-1 to-gradient-2 rounded-md"
+        >
           Subscribe to monthly newsletter
         </button>
       </form>
