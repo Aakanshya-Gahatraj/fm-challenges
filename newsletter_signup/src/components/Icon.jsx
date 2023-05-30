@@ -1,9 +1,15 @@
+/* eslint-disable react/prop-types */
 import listIcon from "/src/assets/icon-list.svg";
 
-function Icon() {
+function Icon(props) {
   return (
     <div>
-      <img src={listIcon} alt="List Icon" />
+      <img
+        height={props.height}
+        width={props.width}
+        src={listIcon}
+        alt="List Icon"
+      />
     </div>
   );
 }

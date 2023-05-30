@@ -14,7 +14,8 @@ export default {
         'custom-xl': '50px'
       },
       width:{
-        "custom-w": '46%'
+        "custom-w": '46%',
+        // "custom-btn-w": '18%'
       },
       colors: {
         "custom-dark-slate-grey": "hsl(234, 29%, 20%)",
