@@ -42,12 +42,12 @@ function SignUPForm() {
   };
 
   return (
-    <div className="signUp">
+    <div className="signUp ">
       <form onSubmit={handleSubmit}>
         <div className="label mb-4 flex justify-between">
           <label
             htmlFor="email"
-            className="font-custom-roboto font-custom-bold text-base"
+            className="font-custom-roboto font-custom-bold text-base @4xl:text-xs"
           >
             Email address
             {error && <span className="text-primary">*</span>}
@@ -62,7 +62,7 @@ function SignUPForm() {
           type="email"
           value={email}
           onChange={handleInputChange}
-          className={` p-4 w-full border hover:cursor-pointer ${
+          className={` p-4 @4xl:py-3 w-full border hover:cursor-pointer ${
             error
               ? "bg-red-100 text-primary border-primary"
               : "border-custom-grey"
@@ -71,7 +71,7 @@ function SignUPForm() {
         />
         <button
           disabled={isDisabled}
-          className=" px-2 py-5 mt-5 w-full text-custom-white font-semibold text-center bg-custom-dark-slate-grey hover:bg-gradient-to-r from-gradient-1 to-gradient-2 rounded-md"
+          className="text-sm @[1000px]:text-base px-2 py-5 @4xl:py-3 mt-5 w-full text-custom-white font-semibold text-center bg-custom-dark-slate-grey hover:bg-gradient-to-r from-gradient-1 to-gradient-2 rounded-md"
         >
           Subscribe to monthly newsletter
         </button>

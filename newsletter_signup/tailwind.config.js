@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}",],
@@ -14,7 +15,9 @@ export default {
         'custom-xl': '50px'
       },
       width:{
-        "custom-w": '46%'
+        "custom-md": '75%',
+        "custom-l": '46%',
+        "custom-fix": '60rem',
       },
       colors: {
         "custom-dark-slate-grey": "hsl(234, 29%, 20%)",
@@ -26,8 +29,7 @@ export default {
         "gradient-2":"#FF7D4C",
       }
     },
-   
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/container-queries')],
 }
 
