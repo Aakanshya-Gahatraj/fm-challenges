@@ -7,17 +7,4 @@
     .box-1 img{
         content: url("/src/assets/sign-up-desktop.svg");
     }
- /*
-    .signUp .label label{
-        font-size:0.75rem;
-    }
-    .signUp input{
-        padding:0.5rem;
-    }
-    .signUp button{
-        margin-top:1rem;
-        padding:0.75rem 0;
-    }
-*/
-
 }
