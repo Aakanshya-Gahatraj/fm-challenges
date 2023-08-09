@@ -24,18 +24,24 @@
     <!-- Parent for Background -->
     <div class="relative">
       <picture>
-        <source media="(min-width:500px)" srcset="images/bg-desktop-dark.jpg">
-        <img src="images/bg-mobile-dark.jpg" class='d-mode-img hidden w-full' alt="header-img-mobile-dark-mode" />
+        <source
+          media="(min-width:500px)"
+          id="bg-img-desktop"
+          srcset="images/bg-desktop-light.jpg"
+        />
+        <img
+          src="images/bg-mobile-light.jpg"
+          id="bg-img-mobile"
+          class="w-full"
+          alt="header-img-mobile-light-mode"
+        />
       </picture>
-      <picture>
-        <source media="(min-width:500px)" srcset="images/bg-desktop-light.jpg">
-        <img src="images/bg-mobile-light.jpg" class="l-mode-img w-full" alt="header-img-mobile-light-mode" />
-      </picture>
-     
     </div>
 
     <!-- Child -->
-    <main class="child absolute top-12 left-8 right-8 custom-sm:top-16 custom-sm:left-20 custom-sm:right-20 custom-md:left-52 custom-md:right-52 custom-lg:left-96 custom-lg:right-96 h-80 p-2 flex flex-col gap-8 ">
+    <main
+      class="child absolute top-12 left-8 right-8 custom-sm:top-16 custom-sm:left-20 custom-sm:right-20 custom-md:left-52 custom-md:right-52 custom-lg:left-96 custom-lg:right-96 h-80 p-2 flex flex-col gap-8"
+    >
       <!-- Heading -->
       <div class="header flex flex-row justify-between">
         <p
@@ -43,7 +49,12 @@
         >
           Todo
         </p>
-        <svg width="26" height="26" onclick=modeChanger() class="hidden dark-mode">
+        <svg
+          width="26"
+          height="26"
+          onclick="modeChanger()"
+          class="hidden mode-dark-to-light"
+        >
           <path
             fill="white"
             fill-rule="evenodd"
@@ -51,150 +62,222 @@
           />
         </svg>
 
-        <svg width="26" height="26" onclick=modeChanger() class="light-mode">
-          <path 
-          fill="#FFF" 
-          fill-rule="evenodd" 
-          d="M13 0c.81 0 1.603.074 2.373.216C10.593 1.199 7 5.43 7 10.5 7 16.299 11.701 21 17.5 21c2.996 0 5.7-1.255 7.613-3.268C23.22 22.572 18.51 26 13 26 5.82 26 0 20.18 0 13S5.82 0 13 0z"/></svg>
+        <svg
+          width="26"
+          height="26"
+          onclick="modeChanger()"
+          class="mode-light-to-dark"
+        >
+          <path
+            fill="#FFF"
+            fill-rule="evenodd"
+            d="M13 0c.81 0 1.603.074 2.373.216C10.593 1.199 7 5.43 7 10.5 7 16.299 11.701 21 17.5 21c2.996 0 5.7-1.255 7.613-3.268C23.22 22.572 18.51 26 13 26 5.82 26 0 20.18 0 13S5.82 0 13 0z"
+          />
+        </svg>
       </div>
 
       <!-- Todo -->
-      <div class="todo-list flex flex-col gap-3 ">
+      <div class="todo-list flex flex-col gap-3">
         <div
-          class="flex flex-row gap-3 px-4 py-3 bg-dm-custom-white dark:bg-dm-custom-light-black border-none rounded-md">
+          class="flex flex-row gap-3 px-4 py-3 bg-dm-custom-white dark:bg-dm-custom-light-black border-none rounded-md"
+        >
           <div
             class="w-5 h-5 bg-transparent border border-dm-custom-medium-grey rounded-full"
           ></div>
-          <input type="text" class="bg-transparent placeholder-slate-500 text-slate-500 flex-grow" id="todo-item" value="" onkeypress="pressedEnter(event)" placeholder="Create a new todo....">
+          <input
+            type="text"
+            class="bg-transparent placeholder-slate-500 text-slate-500 focus:outline-0"
+            id="todo-item"
+            value=""
+            onkeypress="pressedEnter(event)"
+            placeholder="Create a new todo...."
+          />
         </div>
 
         <!-- Todo lists -->
-        <div class="my-todo-items">
-        </div>
+        <div class="my-todo-items"></div>
 
-        <!-- Todo States --> 
-        <div class="status px-4 py-3 text-slate-500 bg-dm-custom-white dark:bg-dm-custom-light-black border-none rounded-md">
+        <!-- Todo States -->
+        <div
+          class="status px-4 py-3 text-slate-500 bg-dm-custom-white dark:bg-dm-custom-light-black border-none rounded-md"
+        >
           <ul class="flex flex-row gap-6 justify-center font-extrabold">
-            <li class="text-custom-blue hover:cursor-pointer " onclick="allTodo()">All</li>
-            <li class="hover:text-slate-600 dark:hover:text-white hover:cursor-pointer" onclick="activeTodo()">Active</li>
-            <li class="hover:text-slate-600 dark:hover:text-white hover:cursor-pointer" onclick="completedTodo()">Completed</li>
+            <li
+              class="hover:text-custom-blue hover:cursor-pointer"
+              onclick="allTodo()"
+            >
+              All
+            </li>
+            <li
+              class="hover:text-slate-600 dark:hover:text-white hover:cursor-pointer"
+              onclick="activeTodo()"
+            >
+              Active
+            </li>
+            <li
+              class="hover:text-slate-600 dark:hover:text-white hover:cursor-pointer"
+              onclick="completedTodo()"
+            >
+              Completed
+            </li>
           </ul>
         </div>
-        <!-- Clear Completed  -->
-      </div>
-
-      <div class="text-center text-dm-custom-medium-grey text-lg my-4 dark:text-dm-custom-light-grey">
-        <p>Drag and drop to reorder list</p>
       </div>
     </main>
 
     <script>
-      let cnt=0;
-      const todoList = document.querySelector('.my-todo-items')
-      let completed_array= [];
+      const todoList = document.querySelector(".my-todo-items");
 
-      function modeChanger(){
-        let dMode= document.querySelector('.dark-mode');
-        let lMode= document.querySelector('.light-mode');
-        let dMode_img= document.querySelector('.d-mode-img');
-        let lMode_img= document.querySelector('.l-mode-img');
+      function modeChanger() {
+        let darkMode = document.querySelector(".mode-dark-to-light");
+        let lightMode = document.querySelector(".mode-light-to-dark");
+        let bgImgD = document.querySelector("#bg-img-desktop");
+        let bgImgM = document.querySelector("#bg-img-mobile");
 
-        if (dMode.classList.contains('hidden')){  // is in light mode - switch to dark
-          dMode.classList.remove('hidden');
-          lMode.classList.add('hidden');
-          lMode_img.classList.add('hidden');
-          dMode_img.classList.remove('hidden');
-          document.documentElement.setAttribute('data-theme', 'dark');
-        }else{
-          lMode.classList.remove('hidden');      // is in dark mode - switch to light
-          dMode.classList.add('hidden');
-          dMode_img.classList.add('hidden');
-          lMode_img.classList.remove('hidden');         
-          document.documentElement.setAttribute('data-theme', 'light');
+        if (darkMode.classList.contains("hidden")) {
+          // is in light mode - switch to dark
+          console.log("change to dark");
+          darkMode.classList.remove("hidden");
+          lightMode.classList.add("hidden");
+          bgImgD.srcset = "images/bg-desktop-dark.jpg";
+          bgImgM.src = "images/bg-mobile-dark.jpg";
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+          console.log("change to light");
+          lightMode.classList.remove("hidden"); // is in dark mode - switch to light
+          darkMode.classList.add("hidden");
+          bgImgD.srcset = "images/bg-desktop-light.jpg";
+          bgImgM.src = "images/bg-mobile-light.jpg";
+          document.documentElement.removeAttribute("data-theme");
         }
-      };
+      }
 
       function pressedEnter(event) {
-        let x = event.code;
-        if(x == "Enter") {
-            addTodo();
-        }    
+        let x = event.key;
+        if (x == "Enter") {
+          addTodo();
+        }
       }
 
-      function allTodo(){
-        let len= todoList.childNodes.length-1;
-        for (let i=1;i<=len;i++){
-          if(todoList.childNodes[i].classList.contains('hidden')){
-            todoList.childNodes[i].classList.remove('hidden');
+      function allTodo() {
+        let len = todoList.childNodes.length - 1;
+        for (let i = 1; i <= len; i++) {
+          if (todoList.childNodes[i].classList.contains("hidden")) {
+            todoList.childNodes[i].classList.remove("hidden");
           }
         }
       }
 
-      function activeTodo(){
-        let len= todoList.childNodes.length-1;
-        for (let i=1;i<=len;i++){
-          if(todoList.childNodes[i].classList.contains('line-through')){
-            todoList.childNodes[i].classList.add('hidden');
-          }else if(todoList.childNodes[i].classList.contains('hidden')){
-            todoList.childNodes[i].classList.remove('hidden');
+      function activeTodo() {
+        let len = todoList.childNodes.length - 1;
+        for (let i = 1; i <= len; i++) {
+          if (todoList.childNodes[i].classList.contains("line-through")) {
+            todoList.childNodes[i].classList.add("hidden");
+          } else if (todoList.childNodes[i].classList.contains("hidden")) {
+            todoList.childNodes[i].classList.remove("hidden");
           }
         }
       }
 
-      function completedTodo(){
-        let len= todoList.childNodes.length-1;
-        for (let i=1;i<=len;i++){
-          if(!todoList.childNodes[i].classList.contains('line-through')){
-            todoList.childNodes[i].classList.add('hidden');
-          }else if(todoList.childNodes[i].classList.contains('hidden')){
-            todoList.childNodes[i].classList.remove('hidden');
+      function completedTodo() {
+        let len = todoList.childNodes.length - 1;
+        for (let i = 1; i <= len; i++) {
+          if (!todoList.childNodes[i].classList.contains("line-through")) {
+            todoList.childNodes[i].classList.add("hidden");
+          } else if (todoList.childNodes[i].classList.contains("hidden")) {
+            todoList.childNodes[i].classList.remove("hidden");
           }
         }
       }
 
-      function removeElem(element){
+      function removeElem(element) {
         todoList.removeChild(element);
       }
 
-      function checkCompleted(element){
-        const div_element_check= document.createElement('div');
-        div_element_check.classList.add('w-5', 'h-5','bg-gradient-to-r', 'from-sky-300', 'from-30%', 'to-purple-500', 'to-90%', 'border', 'border-transparent', 'rounded-full', 'flex', 'flex-row', 'justify-center', 'items-center', 'hover:cursor-pointer');
-        div_element_check.innerHTML ='<svg width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>'
-        const circle_element= element.firstElementChild
-        element.replaceChild(div_element_check, circle_element);
-        element.classList.add('text-gray-400', 'line-through');
-        completed_array.push(element);
-        div_element_check.addEventListener('click',()=> { element.replaceChild(circle_element, div_element_check) 
-        element.classList.remove('text-gray-400', 'line-through');})
+      function checkCompleted(element) {
+        const divElementCheck = document.createElement("div");
+        divElementCheck.classList.add(
+          "w-5",
+          "h-5",
+          "bg-gradient-to-r",
+          "from-sky-300",
+          "from-30%",
+          "to-purple-500",
+          "to-90%",
+          "border",
+          "border-transparent",
+          "rounded-full",
+          "flex",
+          "flex-row",
+          "justify-center",
+          "items-center",
+          "hover:cursor-pointer"
+        );
+        divElementCheck.innerHTML =
+          '<svg width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>';
+        const circleElement = element.firstElementChild;
+        element.replaceChild(divElementCheck, circleElement);
+        element.classList.add("text-gray-400", "line-through");
+        divElementCheck.addEventListener("click", () => {
+          element.replaceChild(circleElement, divElementCheck);
+          element.classList.remove("text-gray-400", "line-through");
+        });
       }
 
-      function createTodo(todoName){
-        const div_element_parent= document.createElement('div');
-        const div_element_circle= document.createElement('div');
-        const div_element_cross= document.createElement('div');
-        const para= document.createElement('p');
-        div_element_parent.classList.add('todo-items', 'flex', 'flex-row', 'gap-3', 'px-4', 'py-3','text-slate-600', 'dark:text-dm-custom-light-white','bg-dm-custom-white', 'dark:bg-dm-custom-light-black', 'border-none', 'rounded-md');
-        div_element_circle.classList.add('w-5', 'h-5', 'bg-transparent', 'border', 'border-dm-custom-medium-grey', 'rounded-full' , 'hover:cursor-pointer');
-        para.innerText=todoName;
-        div_element_circle.addEventListener('click',()=> checkCompleted(div_element_parent))
-        div_element_parent.appendChild(div_element_circle);
-        div_element_parent.appendChild(para);
-        div_element_cross.innerHTML = '<svg width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>'
-        div_element_cross.classList.add('right-1', 'hover:cursor-pointer')
+      function createTodo(todoName) {
+        const divElementParent = document.createElement("div");
+        const divElementCircle = document.createElement("div");
+        const divElementCross = document.createElement("div");
+        const todoItem = document.createElement("p");
+        todoItem.innerText = todoName;
+        divElementParent.classList.add(
+          "todo-items",
+          "flex",
+          "flex-row",
+          "gap-3",
+          "px-4",
+          "py-3",
+          "text-slate-600",
+          "dark:text-dm-custom-light-white",
+          "bg-dm-custom-white",
+          "dark:bg-dm-custom-light-black",
+          "border-none",
+          "rounded-md"
+        );
+        divElementCircle.classList.add(
+          "w-5",
+          "h-5",
+          "bg-transparent",
+          "border",
+          "border-dm-custom-medium-grey",
+          "rounded-full",
+          "hover:cursor-pointer"
+        );
+        divElementCircle.addEventListener("click", () =>
+          checkCompleted(divElementParent)
+        );
+        divElementParent.appendChild(divElementCircle);
+        divElementParent.appendChild(todoItem);
+        divElementCross.innerHTML =
+          '<svg width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>';
+        divElementCross.classList.add("hover:cursor-pointer");
 
-        div_element_cross.addEventListener("click",() => removeElem(div_element_parent))
-        div_element_parent.appendChild(div_element_cross);
-        
-        return div_element_parent
+        divElementCross.addEventListener("click", () =>
+          removeElem(divElementParent)
+        );
+        divElementParent.appendChild(divElementCross);
+
+        return divElementParent;
       }
 
-      function addTodo(){
-        let inputVal = document.getElementById('todo-item');
+      function addTodo() {
+        let inputVal = document.getElementById("todo-item");
         let todoName = inputVal.value;
-        console.log({todoName});
-        const todo = createTodo(todoName)
-        todoList.appendChild(todo)
-        inputVal.value='';
+        console.log({ todoName });
+        const todo = createTodo(todoName);
+        todoList.appendChild(todo);
+        inputVal.value = "";
+        allTodo();
       }
     </script>
   </body>
